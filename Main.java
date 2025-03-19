@@ -127,20 +127,20 @@ public class Main {
             for (int i = left; i <= right; i++) {
                 out.print(array[top][i] + " ");
             }
-            top ++; // Сдвигаем верхнюю границу
+            top++; // Сдвигаем верхнюю границу
 
             // Проходим по правому столбцу
             for (int i = top; i <= bottom; i++) {
                 out.print(array[i][right] + " ");
             }
-            right --; // Сдвигаем правую границу
+            right--; // Сдвигаем правую границу
 
             // Если есть еще строки, то проходим по нижней строке
             if (top <= bottom) {
                 for (int i = right; i >= left; i--) {
                     out.print(array[bottom][i] + " ");
                 }
-                bottom --; // Сдвигаем нижнюю границу
+                bottom--; // Сдвигаем нижнюю границу
             }
 
             // Если есть еще столбцы, то проходим по левому столбцу
@@ -148,7 +148,7 @@ public class Main {
                 for (int i = bottom; i >= top; i--) {
                     out.print(array[i][left] + " ");
                 }
-                left ++; // СДвигаем левую границу
+                left++; // Сдвигаем левую границу
             }
         }
     }
@@ -165,7 +165,7 @@ public class Main {
                 rotated[j][n - i - 1] = array[i][j];
             }
         }
-        return rotated; // ВОзвращаем повернутый массив
+        return rotated; // Возвращаем повернутый массив
     }
 
     public static void main(String[] args) {
@@ -174,6 +174,12 @@ public class Main {
         int n = in.nextInt();
         out.print("Введите количество столбцов (m): ");
         int m = in.nextInt();
+
+        // Проверка на нулевой размер массива
+        if (n == 0 || m == 0) {
+            out.println("Массив не может быть размером 0x0");
+            return; // Завершаем выполнение программы
+        }
 
         int[][] array = new int[n][m];
 
